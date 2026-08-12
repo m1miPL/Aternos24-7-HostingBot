@@ -386,10 +386,11 @@ let connectionTimeoutId = null;
 let isReconnecting = false;
 
 function clearBotTimeouts() {
-  if (reconnectTimeoutId) {
-    clearTimeout(reconnectTimeoutId);
-    reconnectTimeoutId = null;
-  }
+if (reconnectTimeoutId) {
+  clearTimeout(reconnectTimeoutId);
+  reconnectTimeoutId = null;
+}
+  
   if (connectionTimeoutId) {
     clearTimeout(connectionTimeoutId);
     connectionTimeoutId = null;
@@ -461,7 +462,7 @@ function createBot() {
       port: config.server.port,
       version: botVersion,
       hideErrors: false,
-      checkTimeoutInterval: 30000
+      checkTimeoutInterval: 0
     });
 
     bot.loadPlugin(pathfinder);
